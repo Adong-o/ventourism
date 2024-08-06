@@ -1,0 +1,388 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* General Styles */
+header {
+    background-color: #555;
+    color: white;
+    position: fixed; /* Changed from relative to fixed */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow for better separation */
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #6e6e6e;
+}
+
+.top-bar .contact-info {
+    font-size: 14px;
+}
+
+.top-bar .social-media a {
+    margin-left: 15px;
+    color: white;
+    text-decoration: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #fff;
+    color: #000;
+}
+
+.navbar .logo img {
+    height: 60px;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.navbar .nav-links li {
+    margin-left: 30px;
+}
+
+.navbar .nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    height: 4px;
+    width: 29px;
+    background-color: #000;
+    margin: 5px;
+    border-radius: 3px;
+}
+
+.close-btn {
+    background-color: #ff7e29;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.close-btn:hover {
+    background-color: #e6691b;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 250px;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.9);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        padding-top: 50px;
+        z-index: 1000;
+    }
+
+    .navbar .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .navbar .nav-links li {
+        margin: 20px 0;
+    }
+
+    .navbar .nav-links a {
+        color: white;
+        font-size: 18px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .close-btn {
+        display: block;
+    }
+}
+
+@media (min-width: 769px) {
+    .close-btn {
+        display: none;
+    }
+}
+
+/*hero*/
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; 
+    overflow: hidden;
+}
+
+.hero-images {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-images img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    opacity: 0;
+    transition: opacity 1s ease-in-out; 
+}
+
+.hero-images img.active {
+    opacity: 1;
+}
+
+
+@media (min-width: 1024px) {
+    .hero {
+        height: 100vh;
+    }
+}
+
+@media (max-width: 1023px) {
+    .hero {
+        height: 80vh; 
+    }
+
+    .hero-images img {
+        object-fit: cover; 
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 60vh; 
+    }
+
+    .hero-images img {
+        object-fit: cover; 
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 50vh; 
+    }
+
+    .hero-images img {
+        object-fit: cover; 
+    }
+}
+
+.hostel-bookings {
+    padding: 50px 0;
+    background-color: #f4f4f4;
+}
+
+.section-title h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.form-container,
+.text-container {
+    flex: 1;
+    padding: 20px;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.form-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: calc(100% - 20px);
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff7e29;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #e6691b;
+}
+
+.text-container p {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: justify;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .form-container,
+    .text-container {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+
+/*footer*/
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    position: relative;
+}
+.footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.footer .column {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px 0;
+}
+.footer .column h3 {
+    margin-bottom: 10px;
+    white-space: nowrap;
+}
+.footer .column ul {
+    list-style: none;
+    padding: 0;
+}
+.footer .column ul li {
+    margin-bottom: 8px;
+}
+.footer .column ul li a {
+    color: white;
+    text-decoration: none;
+}
+.footer .column ul li a:hover {
+    text-decoration: underline;
+}
+.footer .contact-info ul li {
+    margin-bottom: 8px;
+}
+.footer .reservation {
+    margin-top: 20px;
+}
+/*bottom footer*/
+.bottom-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    padding: 10px 20px; 
+    background-color: #423d3d; 
+    color: #fff; 
+    font-size: 14px; 
+}
+
+.bottom-text a {
+    color: #f1cbb1; 
+    text-decoration: none; 
+}
+
+.bottom-text a:hover {
+    text-decoration: underline; 
+}
+
+.left-text {
+    margin: 0;
+}
+
+.right-text {
+    margin: 0;
+}
+
+
+@media (max-width: 768px) {
+    .footer .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer .column {
+        min-width: 100%;
+        text-align: center;
+    }
+}
+/*button*/
+.reservation-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f8c146;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .reservation-button:hover {
+    background-color: #e0a800;
+  }
+ 

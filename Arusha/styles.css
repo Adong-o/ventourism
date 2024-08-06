@@ -1,0 +1,400 @@
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.navbar {
+    box-shadow: 0px 5px 10px 0px #aaa;
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    color: #000;
+    opacity: 0.95;
+    z-index: 100;
+}
+
+.container {
+    max-width: 1200px;
+    width: 90%;
+    margin: auto;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    position: relative; 
+    font-size: 2.5rem;
+    color: #117964;
+    font-family: 'Pacifico', cursive;
+}
+
+.tag {
+    display: inline-block;
+    font-size: 1.2rem; 
+    background-color: #ff7e29; 
+    color: white; 
+    padding: 0.2rem 1rem; 
+    border-radius: 5px; 
+    margin-left: 0.5rem; 
+    position: absolute;
+    bottom: -15px; 
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.menu-items {
+    order: 2;
+    display: flex;
+}
+
+.menu-items li {
+    list-style: none;
+    margin-left: 1.5rem;
+    font-size: 1.4rem;
+}
+
+.navbar a {
+    color: #117964;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+    color: #ff7e29; 
+}
+
+.hamburger-lines {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 25px;
+    width: 30px;
+}
+
+.line {
+    display: block;
+    height: 3px;
+    width: 100%;
+    border-radius: 10px;
+    background: #117964; /* Same as link color */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hide the checkbox for larger screens */
+#menu-toggle {
+    display: none;
+}
+
+/* Hamburger Menu for Mobile */
+@media (max-width: 768px) {
+    .navbar-container {
+        display: block;
+        position: relative;
+        height: 64px;
+    }
+
+    #menu-toggle {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 5;
+        opacity: 0;
+        height: 32px;
+        width: 32px;
+        cursor: pointer;
+        display: block; /* Show checkbox only on small screens */
+    }
+
+    .hamburger-lines {
+        display: flex;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 4;
+    }
+
+    .menu-items {
+        padding-top: 80px;
+        background: #fff;
+        height: 100vh;
+        max-width: 300px;
+        position: fixed;
+        top: 0;
+        left: -300px;
+        flex-direction: column;
+        transition: left 0.3s ease-in-out;
+        box-shadow: 5px 0px 10px 0px #aaa;
+    }
+
+    .menu-items li {
+        margin-bottom: 1.8rem;
+    }
+
+    #menu-toggle:checked ~ .menu-items {
+        left: 0;
+    }
+
+    #menu-toggle:checked ~ .hamburger-lines .line1 {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    #menu-toggle:checked ~ .hamburger-lines .line2 {
+        opacity: 0;
+    }
+
+    #menu-toggle:checked ~ .hamburger-lines .line3 {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .logo {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2.1rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .navbar-container input[type="checkbox"]:checked ~ .logo {
+        display: none;
+    }
+}
+
+/*hero*/
+.background-image-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background: url('https://i.ibb.co/9htGR78/Arusha-8.jpg') no-repeat center center/cover; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .background-image-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Optional overlay for better text contrast */
+  }
+  
+  @media (max-width: 768px) {
+    .background-image-section {
+      height: 50vh; /* Adjust height for smaller screens if needed */
+    }
+  }
+
+
+
+   /* Activities Section */
+   .arusha-section {
+    background: url('https://example.com/background.jpg') no-repeat center center/cover;
+    padding: 40px 0;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .arusha-header {
+    padding: 20px 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Darker overlay for better text readability */
+  }
+  
+  .arusha-header h1 {
+    margin: 0;
+    font-size: 36px;
+    color: #fff; /* Ensure title is visible */
+  }
+  
+  .arusha-header p {
+    margin: 10px 0 20px;
+    font-size: 18px;
+    color: #fff; /* Ensure subtitle is visible */
+  }
+  
+  .activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .activity-box {
+    background-color: rgba(255, 255, 255, 0.9); /* Light background with slight transparency */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    color: #333;
+  }
+  
+  .activity-box img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .activity-content {
+    padding: 15px;
+  }
+  
+  .activity-content h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: #333; /* Text color to ensure readability */
+  }
+  
+  .activity-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .activity-info span {
+    font-size: 14px;
+    color: #ff7e29;
+  }
+  
+  .btn {
+    background-color: #ff7e29;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #e6691b;
+  }
+  
+  @media (max-width: 768px) {
+    .arusha-header h1 {
+      font-size: 28px;
+    }
+  
+    .arusha-header p {
+      font-size: 16px;
+    }
+  
+    .activities-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /*footer*/
+.footer1 {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    position: relative;
+}
+.footer1 .container1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.footer1 .column {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px 0;
+}
+.footer1 .column h3 {
+    margin-bottom: 10px;
+    white-space: nowrap;
+}
+.footer1 .column ul {
+    list-style: none;
+    padding: 0;
+}
+.footer1 .column ul li {
+    margin-bottom: 8px;
+}
+.footer1 .column ul li a {
+    color: white;
+    text-decoration: none;
+}
+.footer1 .column ul li a:hover {
+    text-decoration: underline;
+}
+.footer1 .contact-info1 ul li {
+    margin-bottom: 8px;
+}
+.footer1 .reservation {
+    margin-top: 20px;
+}
+/*bottom footer*/
+.bottom-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    padding: 10px 20px; 
+    background-color: #423d3d; 
+    color: #fff; 
+    font-size: 14px; 
+}
+
+.bottom-text a {
+    color: #f1cbb1; 
+    text-decoration: none; 
+}
+
+.bottom-text a:hover {
+    text-decoration: underline; 
+}
+
+.left-text {
+    margin: 0;
+}
+
+.right-text {
+    margin: 0;
+}
+
+
+@media (max-width: 768px) {
+    .footer1 .container1 {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer1 .column {
+        min-width: 100%;
+        text-align: center;
+    }
+}
+/*button*/
+.reservation-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f8c146;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .reservation-button:hover {
+    background-color: #e0a800;
+  }
+ 
